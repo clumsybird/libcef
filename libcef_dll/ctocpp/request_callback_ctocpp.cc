@@ -1,4 +1,4 @@
-// Copyright (c) 2014 The Chromium Embedded Framework Authors. All rights
+// Copyright (c) 2015 The Chromium Embedded Framework Authors. All rights
 // reserved. Use of this source code is governed by a BSD-style license that
 // can be found in the LICENSE file.
 //
@@ -10,12 +10,12 @@
 // for more information.
 //
 
-#include "libcef_dll/ctocpp/allow_certificate_error_callback_ctocpp.h"
+#include "libcef_dll/ctocpp/request_callback_ctocpp.h"
 
 
 // VIRTUAL METHODS - Body may be edited by hand.
 
-void CefAllowCertificateErrorCallbackCToCpp::Continue(bool allow) {
+void CefRequestCallbackCToCpp::Continue(bool allow) {
   if (CEF_MEMBER_MISSING(struct_, cont))
     return;
 
@@ -26,10 +26,19 @@ void CefAllowCertificateErrorCallbackCToCpp::Continue(bool allow) {
       allow);
 }
 
+void CefRequestCallbackCToCpp::Cancel() {
+  if (CEF_MEMBER_MISSING(struct_, cancel))
+    return;
+
+  // AUTO-GENERATED CONTENT - DELETE THIS COMMENT BEFORE MODIFYING
+
+  // Execute
+  struct_->cancel(struct_);
+}
+
 
 #ifndef NDEBUG
-template<> base::AtomicRefCount CefCToCpp<CefAllowCertificateErrorCallbackCToCpp,
-    CefAllowCertificateErrorCallback,
-    cef_allow_certificate_error_callback_t>::DebugObjCt = 0;
+template<> base::AtomicRefCount CefCToCpp<CefRequestCallbackCToCpp,
+    CefRequestCallback, cef_request_callback_t>::DebugObjCt = 0;
 #endif
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2014 The Chromium Embedded Framework Authors. All rights
+// Copyright (c) 2015 The Chromium Embedded Framework Authors. All rights
 // reserved. Use of this source code is governed by a BSD-style license that
 // can be found in the LICENSE file.
 //
@@ -290,6 +290,19 @@ CefRequest::TransitionType CefRequestCToCpp::GetTransitionType() {
 
   // Execute
   cef_transition_type_t _retval = struct_->get_transition_type(struct_);
+
+  // Return type: simple
+  return _retval;
+}
+
+uint64 CefRequestCToCpp::GetIdentifier() {
+  if (CEF_MEMBER_MISSING(struct_, get_identifier))
+    return 0;
+
+  // AUTO-GENERATED CONTENT - DELETE THIS COMMENT BEFORE MODIFYING
+
+  // Execute
+  uint64 _retval = struct_->get_identifier(struct_);
 
   // Return type: simple
   return _retval;
